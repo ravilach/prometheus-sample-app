@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: prometheus-sample-app
-  replicas: 5 # tells deployment to run 5 pods matching the template
+  replicas: 1 
   template:
     metadata:
       labels:
@@ -17,9 +17,8 @@ spec:
     spec:
       containers:
         - name: prometheus-sample-app
-          image: 786911222539.dkr.ecr.us-east-2.amazonaws.com/prometheus_sample_app:latest
-         # image: prometheus-sample-app:latest
-          imagePullPolicy: Never
+          image: rlachhman/promsample:1.0.0-amd64
+          imagePullPolicy: Always
           command:
             - "/bin/main"
           args:
