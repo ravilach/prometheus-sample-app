@@ -76,9 +76,9 @@ $ curl localhost:8080/metrics
 ```
 
 ### Deployment on Kubernetes:
-- Run following command to deploy:
-    ```bash
+Run following command to deploy:
+ ```bash
     $ kubectl apply -f prometheus-sample-app-k8s-deployment.yaml
-    ```
+ ```
 
 
