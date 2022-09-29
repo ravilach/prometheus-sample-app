@@ -122,13 +122,6 @@ Deploy the example deployment configuration of 5 instances of Prometheus-Sample-
 - Copy image URI from the AWS ECR repository and update in 'prometheus-sample-app-k8s-deployment.yaml'
 - Run following command to deploy:
     ```bash
-    $ kubectl apply -f otel-collector-k8s-deployment.yaml
-    $ kubectl create clusterrolebinding service-reader-pod --clusterrole=service-reader --serviceaccount=default:default
     $ kubectl apply -f prometheus-sample-app-k8s-deployment.yaml
     ```
-- Run following command to monitor logs from OTEL Collector Logging exporter :
-    ```bash
-    $ kubectl logs <otel-collector-pod-name>
-    ```
 
-Currently, OTEL Collector is configured with Logging exporter. In this example, all replica Prometheus-Sample-App pods will produce identical metrics, and the Prometheus Exporter doesn't ingest identical metrics (same name and label) from different sources.
