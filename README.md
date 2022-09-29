@@ -89,39 +89,10 @@ Deploy the example deployment configuration of 5 instances of Prometheus-Sample-
 - Docker Image Prometheus-Sample-App
 - A Kubernetes cluster
 
-### Deployment on Minikube:
-- Run Docker
-- Start Minikube
-  ```bash
-    $ minikube start
-  ```
-- Run following command to deploy: 
-    ```bash
-    $ kubectl apply -f otel-collector-k8s-deployment.yaml
-    $ kubectl create clusterrolebinding service-reader-pod --clusterrole=service-reader --serviceaccount=default:default
-    $ kubectl apply -f prometheus-sample-app-k8s-deployment.yaml
-    ```
-- Run following command to monitor logs from OTEL Collector Logging exporter :
-    ```bash
-    $ kubectl logs <otel-collector-pod-name>
-    ```
-### Deployment on EKS:
-- Create your cluster on EKS
-  ```bash
-  $ eksctl create cluster --name <cluster-name> --region <region> --with-oidc --ssh-access --ssh-public-key <public-key>
-  ```
-- Create repository on Amazon ECR to push docker image of Prometheus-Sample-App
-- Push the prometheus_sample_app docker image to this repository
-    ```bash
-    $ aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
-    $ docker build -t prometheus_sample_app .
-    $ docker tag prometheus_sample_app:latest aws_account_id.dkr.ecr.region.amazonaws.com/my-repository:tag
-    $ docker push aws_account_id.dkr.ecr.region.amazonaws.com/my-repository:tag
-    ```
-- Update imagePullPolicy of 'prometheus-sample-app-k8s-deployment.yaml' to IfNotPresent
-- Copy image URI from the AWS ECR repository and update in 'prometheus-sample-app-k8s-deployment.yaml'
+### Deployment on Kubernetes:
 - Run following command to deploy:
     ```bash
     $ kubectl apply -f prometheus-sample-app-k8s-deployment.yaml
     ```
+
 
