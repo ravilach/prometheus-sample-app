@@ -10,12 +10,6 @@ The following is a list of optional command line flags for configuration:
 * `label_count`: (default=1) the amount of labels per metric to generate.
 * `datapoint_count`: (default=1) the number of data-points per metric to generate. 
 
-Steps for running locally:
-```bash
-$ go build .
-$ ./prometheus-sample-app -listen_address=0.0.0.0:4567 -metric_count=100
-```
-
 Steps for running in docker:
 
 ```bash
@@ -80,14 +74,6 @@ $ docker build . -t prometheus-sample-app
 $ docker run -it -p 8080:8080 prometheus-sample-app /bin/main -listen_address=0.0.0.0:8080 generate -metric_type=all -is_random=true
 $ curl localhost:8080/metrics
 ```
-
-## Clustering:
-Deploy the example deployment configuration of 1 instances of Prometheus-Sample-App.
-
-### Pre-requisites:
-- Docker
-- Docker Image Prometheus-Sample-App
-- A Kubernetes cluster
 
 ### Deployment on Kubernetes:
 - Run following command to deploy:
