@@ -82,8 +82,8 @@ $ curl localhost:8080/metrics
 ```
 
 ## Clustering:
-Deploy the example deployment configuration of 5 instances of Prometheus-Sample-App along with configured OTEL Collector.
-    
+Deploy the example deployment configuration of 1 instances of Prometheus-Sample-App.
+
 ### Pre-requisites:
 - Docker
 - Docker Image Prometheus-Sample-App
